@@ -55,10 +55,10 @@
   [define name-list (list "m" "r" "p.png")]
   (time (evolve what-type B 100 10 1 3 .3 name-list)))
 
-(define (run-many what-type list-of-speeds list-of-rounds list-of-deltas)
-  (for* ([i (in-list list-of-speeds)]
-         [j (in-list list-of-rounds)]
-	[k (in-list list-of-deltas)])
+(define (run-many what-type)
+  (for* ([i (in-list speed-list)]
+         [j (in-list round-list)]
+	[k (in-list delta-list)])
     [define B (cond
                [(equal? what-type "ibar") (random-population 1 100)]
                [(equal? what-type "fsm") (create-population 100)])]

@@ -25,8 +25,9 @@
   [define l (length ranking)]
   (out-data rank-file (append (list (list day))
                               (map list
-                                   (and (not (false? truncated))
-                                   truncated)))))
+                                   (if (false? truncated) 
+					'() 
+                                       truncated)))))
 
 (define (n->srd what-type s r d)
   (let ([pre-name (string-append
